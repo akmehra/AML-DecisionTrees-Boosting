@@ -10,10 +10,16 @@ def preprocess(file):
 
     for each in data:
         label = each[20]
-        del each[20]
+
+        if label == '0':
+            label = '-1'
+
         del each[21]
+        del each[20]
+
         each.insert(0, label)
         each = map(int, each)
+
         result.append(each)
     
     return result

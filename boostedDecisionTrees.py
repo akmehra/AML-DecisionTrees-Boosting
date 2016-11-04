@@ -16,7 +16,7 @@ For building your bags numpy's random module will be helpful.
 import numpy as np;
 
 import sys, os;
-
+import decisionTree
 '''
 Function: load_and_split_data(datapath)
 datapath: (String) the location of the UCI mushroom data set directory in memory
@@ -60,8 +60,8 @@ This function wil manage coordinating the learning of the boosted ensemble.
 Nothing is returned, but the accuracy of the learned ensemble model is printed
 to the screen.
 '''
-def learn_boosted(tdepth, numtrees, datapath):
-    pass;
+# def learn_boosted(tdepth, numtrees, datapath):
+#     pass;
 
 
 if __name__ == "__main__":
@@ -73,16 +73,15 @@ if __name__ == "__main__":
     # Get the ensemble type
     entype = sys.argv[1];
     # Get the depth of the trees
-    tdepth = int(sys.arg[2]);
+    tdepth = int(sys.argv[2]);
     # Get the number of bags or trees
     nummodels = int(sys.argv[3]);
-    # Get the location of the data set
+    # Get the location of the data set(train)
     datapath = sys.argv[4];
-
     # Check which type of ensemble is to be learned
     if entype == "bag":
         # Learned the bagged decision tree ensemble
         learn_bagged(tdepth, nummodels, datapath);
     else:
         # Learned the boosted decision tree ensemble
-        learn_boosted(tdepth, nummodels, datapath);
+        decisionTree.learn_boosted(tdepth, nummodels, datapath);
